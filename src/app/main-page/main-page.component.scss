@@ -1,0 +1,445 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+// .container {
+//   display: grid;
+//   width: 200px;
+//   grid-template-columns: repeat(6, 1fr);
+//   grid-auto-rows: 200px;
+//   grid-gap: 1rem;
+//   height: 50%;
+// }
+// .container {
+//   display: grid;
+//   width: 200px;
+//   grid-template-columns: repeat(6, 1fr);
+//   grid-auto-rows: 200px;
+//   grid-gap: 1rem;
+//   height: 50%;
+// }
+.item1 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+/* Shorthand property - rewrite .item1
+.item1 {
+  grid-row: 2 / 3;
+  grid-column: 2 3/
+}
+*/
+
+/* OTHER STYLES */
+
+.item {
+  background-color: #1eaafc;
+  background: -moz-linear-gradient(
+    left,
+    #fbdcce 0%,
+    #afdfdb 50%,
+    #75c9cc 100%
+  ); /* FF3.6-15 */
+  background-image: liner-gradient(
+    130deg,
+    #fbdcce 0%,
+    #1eaafc 85%,
+    #75c9cc 100%
+  );
+  color: #222222;
+  border-radius: 4px;
+  border: 6px solid #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5px;
+  padding: 5px;
+
+  color: #222222;
+}
+
+mat-grid-tile {
+  background: rgb(211, 217, 219);
+  cursor: pointer;
+}
+
+// scss-lint:disable VendorPrefix, Indentation
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+$bg: #616161;
+$text-light: #fafafa;
+$text: #212121;
+$placeholder: #999;
+$panel-bg: #fff;
+$shadow-dark: rgba(0, 0, 0, 0.65);
+
+$button-hover: #4fc3f7;
+$button-active: #03a9f4;
+
+//MIXINS
+@mixin transition($time) {
+  -webkit-transition: all $time;
+  transition: all $time;
+}
+
+a {
+  @include transition(0.4s);
+  color: $button-active;
+  text-decoration: none;
+
+  &:hover {
+    color: $button-hover;
+    font-weight: bold;
+  }
+}
+
+.panel {
+  @include transition(0.7s);
+  background: $panel-bg;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px $shadow-dark;
+  color: $text;
+  height: 300px;
+  left: 0;
+  margin: 0 auto 150px;
+  overflow: hidden;
+  padding-top: 30px;
+  position: relative;
+  right: 0;
+  top: 50px;
+  width: 400px;
+  z-index: 200;
+
+  &:hover {
+    @include transition(0.7s);
+    border-radius: 35px 35px 35px 5px;
+    box-shadow: 0 2px 5px $shadow-dark;
+  }
+}
+.panel1 {
+  @include transition(0.7s);
+  background: $panel-bg;
+  border-radius: 5px;
+  box-shadow: 0 5px 20px $shadow-dark;
+  color: $text;
+  left: 0;
+  margin: 0 auto auto;
+  overflow: hidden;
+  position: relative;
+  right: 0;
+  width: 97%;
+  z-index: 200;
+  top: 10px;
+  height: 100%;
+
+  // &:hover {
+  //     @include transition(.7s);
+  //     border-radius: 35px 35px 35px 5px;
+  //     box-shadow: 2px 2px 5px 2px;
+  // }
+}
+
+.panel-group {
+  margin-bottom: 35px;
+  margin-left: 40px;
+  position: relative;
+}
+
+.input {
+  border: 0;
+  border-bottom: 1px solid $text;
+  display: block;
+  font-size: 1em;
+  padding: 10px 10px 10px 5px;
+  width: 300px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+label {
+  @include transition(0.2s);
+  color: $placeholder;
+  font-size: 14px;
+  font-weight: normal;
+  left: 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+}
+
+//animate label when input is in focus
+.input:focus ~ label,
+.input:valid ~ label {
+  color: $button-hover;
+  font-size: 0.75em;
+  font-weight: bold;
+  top: -15px;
+}
+
+//animate bottom border when input is in focus*/
+.border {
+  display: block;
+  position: relative;
+  width: 315px;
+}
+
+.border::before,
+.border::after {
+  @include transition(0.5s);
+  background: $button-active;
+  bottom: 1px;
+  content: "";
+  height: 2px;
+  position: absolute;
+  width: 0;
+}
+
+.border::before {
+  left: 50%;
+}
+
+.border::after {
+  right: 50%;
+}
+
+//border width when clicked*/
+.input:focus ~ .border::before,
+.input:focus ~ .border::after {
+  width: 50%;
+}
+
+.panel-footer {
+  font-size: 0.75em;
+  padding-left: 50%;
+}
+
+footer {
+  bottom: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.follow {
+  margin: 0 auto;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+$google-blue: #4285f4;
+$button-active-blue: #3367d6;
+
+.google-button {
+  all: unset;
+
+  margin: auto;
+  width: fit-content;
+  height: 52px;
+  background-color: $google-blue;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 300ms ease-in-out;
+  display: flex;
+  justify-content: space-between;
+
+  .google-icon-wrapper {
+    margin: 1px;
+    width: 50px;
+    height: 50px;
+    border-radius: 1px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .google-button-text {
+    display: flex;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+    margin-left: 1em;
+    margin-right: 1em;
+    align-items: center;
+  }
+
+  &:hover {
+    box-shadow: 0 0 3px 3px rgba(66, 133, 244, 0.3);
+    cursor: pointer;
+  }
+  &:active {
+    background: $button-active-blue;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 51.25rem;
+  margin: 6rem auto;
+  margin-right: 23%;
+}
+
+.label {
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: +1.3px;
+  margin-bottom: 1rem;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#searchQueryInput {
+  width: 100%;
+  height: 2.8rem;
+  background: #dedbdb;
+  border: none;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchQuerySubmit {
+  width: 3.5rem;
+  height: 2.8rem;
+  margin-left: -3.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+#searchQuerySubmit:hover {
+  cursor: pointer;
+}
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  background: #bec0c2;
+  display: block;
+}
+
+.inner-footer {
+  width: 95%;
+  margin: auto;
+  padding: 30px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.footer-items {
+  width: 25%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  // color: #fff;
+}
+
+.footer-items p {
+  font-size: 16px;
+  text-align: justify;
+  line-height: 25px;
+  color: #fff;
+}
+
+.footer-items h1 {
+  color: #fff;
+}
+
+.border1 {
+  height: 3px;
+  width: 40px;
+  background: #ff9800;
+  color: #ff9800;
+  background-color: #ff9800;
+  border: 0px;
+}
+
+ul {
+  padding: initial;
+  list-style: none;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+ul a {
+  padding: initial;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+ul a:hover {
+  color: #ff9800;
+}
+
+ul li {
+  margin: 10px 0;
+  height: 25px;
+}
+
+li i {
+  margin-right: 20px;
+}
+
+// .social-media {
+// 	width: 100%;
+// 	color: #fff;
+// 	text-align: center;
+// 	font-size: 20px;
+// }
+
+// .social-media a {
+// 	text-decoration: none;
+// }
+
+// .social-media i {
+// 	height: 25px;
+// 	width: 25px;
+// 	margin: 20px 10px;
+// 	padding: 4px;
+// 	color: #fff;
+// 	transition: 0.5s;
+// }
+
+// .social-media i:hover {
+// 	transform: scale(1.5);
+// }
+
+.facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.footer-bottom {
+  padding: 10px;
+  background: #00121b;
+  color: #fff;
+  font-size: 12px;
+  text-align: left;
+}
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.flex-container > div {
+  color: white;
+  margin: 10px;
+
+  font-size: 30px;
+}
+.bg-steth {
+  background-image: url("./../../assets/stethoscope-in-shape-of-heart-vector-14290570.jpg");
+}
